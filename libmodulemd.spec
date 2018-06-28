@@ -16,6 +16,7 @@ Source0:	https://github.com/fedora-modularity/libmodulemd/archive/libmodulemd-%{
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
+BuildRequires:	pkgconfig(yaml-0.1)
 
 %description
 Library for manipulating module metadata files
