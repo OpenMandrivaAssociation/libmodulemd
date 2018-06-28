@@ -17,6 +17,7 @@ BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
 BuildRequires:	pkgconfig(yaml-0.1)
+BuildRequires:	gtk-doc
 
 %description
 Library for manipulating module metadata files
