@@ -72,6 +72,7 @@ Development files for %{name}.
 %files -n %{devname}
 %license COPYING
 %{_libdir}/%{name}.so
-%{_datadir}/gir-1.0/Modulemd-*.gir
+%{_datadir}/gir-%{girapi}/Modulemd-*.gir
 %{_includedir}/modulemd
 %{_libdir}/pkgconfig/modulemd.pc
+%doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
