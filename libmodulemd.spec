@@ -6,16 +6,17 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	1.5.2
+Version:	1.6.2
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
-Source0:	https://github.com/fedora-modularity/libmodulemd/archive/libmodulemd-%{version}.tar.gz
+Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{version}.tar.xz
 
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
+BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	gtk-doc
 BuildRequires:	valgrind
@@ -50,10 +51,10 @@ Requires:	%{libname}%{?_isa} = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-%autosetup -p1 -n %{name}-%{name}-%{version}
+%autosetup -p1 -n modulemd-%{version}
 
 %build
-%meson
+%meson -Ddeveloper_build=false
 %ninja_build -C build
 
 %install
