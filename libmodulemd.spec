@@ -75,4 +75,3 @@ Development files for %{name}.
 %{_datadir}/gir-1.0/Modulemd-*.gir
 %{_includedir}/modulemd
 %{_libdir}/pkgconfig/modulemd.pc
-%doc %{_datadir}/gtk-doc/html/modulemd
