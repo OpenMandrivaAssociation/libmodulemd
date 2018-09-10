@@ -1,0 +1,35 @@
+From e69860136a11441a9f952ac97da1040a3219b4d6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lubom=C3=ADr=20Sedl=C3=A1=C5=99?= <lsedlar@redhat.com>
+Date: Wed, 5 Sep 2018 12:20:36 +0200
+Subject: [PATCH 2/2] Use decimal version in NSVC
+
+Fixes: #82
+---
+ modulemd/v1/modulemd-modulestream.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/modulemd/v1/modulemd-modulestream.c b/modulemd/v1/modulemd-modulestream.c
+index 1ee6e1cffc5cecd19439ca47afc4425e9808aaa4..58317c17564301f85984f7608356002afeb29921 100644
+--- a/modulemd/v1/modulemd-modulestream.c
++++ b/modulemd/v1/modulemd-modulestream.c
+@@ -1796,15 +1796,15 @@ modulemd_modulestream_get_nsvc (ModulemdModuleStream *self)
+     }
+ 
+   if (context)
+     {
+       nsvc = g_strdup_printf (
+-        "%s:%s:%" PRIx64 ":%s", name, stream, version, context);
++        "%s:%s:%" PRIu64 ":%s", name, stream, version, context);
+     }
+   else
+     {
+-      nsvc = g_strdup_printf ("%s:%s:%" PRIx64, name, stream, version);
++      nsvc = g_strdup_printf ("%s:%s:%" PRIu64, name, stream, version);
+     }
+ 
+   return nsvc;
+ }
+ 
+-- 
+2.19.0.rc0
+

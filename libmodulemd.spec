@@ -6,12 +6,17 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	1.6.2
+Version:	1.6.3
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
 Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{version}.tar.xz
+# https://github.com/fedora-modularity/libmodulemd/issues/85
+Patch0001:	0001-Properly-write-out-the-ref-for-module-components.patch
+
+# https://github.com/fedora-modularity/libmodulemd/issues/82
+Patch0002:	0002-Use-decimal-version-in-NSVC.patch
 
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
