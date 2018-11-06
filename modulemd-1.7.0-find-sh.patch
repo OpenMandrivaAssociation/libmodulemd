@@ -1,0 +1,22 @@
+diff -Naur modulemd-1.7.0/meson.build modulemd-1.7.0.tpg/meson.build
+--- modulemd-1.7.0/meson.build	2018-10-26 15:01:36.000000000 +0000
++++ modulemd-1.7.0.tpg/meson.build	2018-11-06 18:59:12.077940986 +0000
+@@ -51,6 +51,9 @@
+ yaml = dependency('yaml-0.1')
+ gtkdoc = dependency('gtk-doc')
+ 
++sh = find_program('sh')
++sed = find_program('sed')
++
+ spec_tmpl = find_program('spec_tmpl.sh')
+ 
+ specfile_template = files('libmodulemd.spec.in')
+@@ -72,7 +75,7 @@
+     'specfile',
+     capture: true,
+     build_always: true,
+-    command: [spec_tmpl, meson.project_version(), '@INPUT@'],
++    command: [sh, spec_tmpl, meson.project_version(), '@INPUT@'],
+     input: specfile_template,
+     output: 'libmodulemd.spec',
+     depends: rpmsetup_target,
