@@ -1,5 +1,5 @@
 %define major 2
-%define girapi 1.0
+%define girapi %{major}.0
 %define libname %mklibname modulemd %{major}
 %define girname %mklibname modulemd-gir %{girapi}
 %define devname %mklibname modulemd -d
@@ -71,7 +71,7 @@ Development files for %{name}.
 %files -n %{devname}
 %license COPYING
 %{_libdir}/%{name}.so
-%{_datadir}/gir-%{girapi}/Modulemd-%{major}*.gir
+%{_datadir}/gir-1.0/Modulemd-%{girapi}.gir
 %{_includedir}/modulemd-%{major}.0
 %{_libdir}/pkgconfig/modulemd-%{major}.pc
 %doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
