@@ -1,4 +1,4 @@
-%define major 1
+%define major 2
 %define girapi %{major}.0
 %define libname %mklibname modulemd %{major}
 %define girname %mklibname modulemd-gir %{girapi}
