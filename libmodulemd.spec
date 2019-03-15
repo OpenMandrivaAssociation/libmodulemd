@@ -46,6 +46,15 @@ Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{girname}%{?_isa} = %{version}-%{release}
 Requires:	%{libname}%{?_isa} = %{version}-%{release}
 
+%package -n python-%{name}
+Summary:        Python bindings for %{name}
+Group:          Development/Python
+Requires:       %{girname}%{?_isa} = %{version}-%{release}
+Requires:       python3dist(pygobject)
+
+%description -n python-%{name}
+This package provides the Python 3 bindings for %{name}.
+
 %description -n %{devname}
 Development files for %{name}.
 
@@ -75,3 +84,7 @@ Development files for %{name}.
 %{_includedir}/modulemd-%{major}.0
 %{_libdir}/pkgconfig/modulemd-%{major}*.pc
 %doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
+
+%files -n python-%{name}
+%{py_platsitedir}/gi/overrides/Modulemd.py
+%{py_platsitedir}/gi/overrides/__pycache__/Modulemd.*
