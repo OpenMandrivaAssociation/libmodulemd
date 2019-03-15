@@ -73,5 +73,5 @@ Development files for %{name}.
 %{_libdir}/%{name}.so
 %{_datadir}/gir-1.0/Modulemd-%{girapi}.gir
 %{_includedir}/modulemd-%{major}.0
-%{_libdir}/pkgconfig/modulemd-%{major}.pc
+%{_libdir}/pkgconfig/modulemd-%{major}*.pc
 %doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
