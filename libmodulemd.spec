@@ -6,6 +6,9 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
+# libdnf requires libmodulemd version 1.x.
+# Don't update to 2.x before libdnf is ready.
+# Previous work on updating this has been moved to the post-4.0 branch
 Version:	1.7.0
 Release:	2
 Group:		System/Libraries
