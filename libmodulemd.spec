@@ -3,6 +3,7 @@
 %define libname %mklibname modulemd %{major}
 %define girname %mklibname modulemd-gir %{girapi}
 %define devname %mklibname modulemd -d
+%bcond_with valgrind
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
@@ -23,7 +24,9 @@ BuildRequires:	python3egg(autopep8)
 BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	gtk-doc
+%if %{with valgrind}
 BuildRequires:	valgrind
+%endif
 
 %description
 Library for manipulating module metadata files
