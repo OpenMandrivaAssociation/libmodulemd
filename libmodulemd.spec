@@ -4,6 +4,7 @@
 %define girname %mklibname modulemd-gir %{girapi}
 %define devname %mklibname modulemd -d
 %bcond_with valgrind
+%bcond_with gtkdoc
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
@@ -18,12 +19,15 @@ URL:		https://github.com/fedora-modularity/%{name}
 Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{version}.tar.xz
 # (tpg) https://github.com/fedora-modularity/libmodulemd/issues/99
 Patch0:		modulemd-1.7.0-find-sh.patch
+Patch1:		disable-gtk-doc.patch
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
-BuildRequires:	python3dist(pygobject)
+#BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
+%if %{with gtkdoc}
 BuildRequires:	gtk-doc
+%endif
 %if %{with valgrind}
 BuildRequires:	valgrind
 %endif
@@ -82,4 +86,6 @@ Development files for %{name}.
 %{_datadir}/gir-%{girapi}/Modulemd-*.gir
 %{_includedir}/modulemd
 %{_libdir}/pkgconfig/modulemd.pc
+%if %{with gtkdoc}
 %doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
+%endif
