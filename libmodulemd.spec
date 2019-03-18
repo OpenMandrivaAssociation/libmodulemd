@@ -25,6 +25,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
 #BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
+BuildRequires:	atomic-devel
 %if %{with gtkdoc}
 BuildRequires:	gtk-doc
 %endif
