@@ -12,14 +12,15 @@
 %define oldgirname %mklibname modulemd-gir %{oldgirapi}
 %define olddevname %mklibname modulemd %{oldmajor} -d
 
+%define newversion 2.1.0
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.1.0
+Version:	%{newversion}
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
-Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{version}.tar.xz
+Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{newversion}.tar.xz
 Patch1:		disable-gtk-doc.patch
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -69,7 +70,7 @@ Development files for %{name}.
 
 %package -n %{oldlibname}
 Summary:        Main library for %{name} 1.x
-Version:        %{libmodulemd_v1_version}
+Version:        %{oldversion}
 Group:          System/Libraries
 
 %description -n %{oldlibname}
@@ -78,7 +79,7 @@ that use %{name} 1.x.
 
 %package -n %{oldgirname}
 Summary:        GObject Introspection interface description for %{name} 1.x
-Version:        %{libmodulemd_v1_version}
+Version:        %{oldversion}
 Group:          System/Libraries
 Requires:       %{oldlibname}%{?_isa} = %{oldversion}-%{release}
 
@@ -103,7 +104,7 @@ RemovePathPostfixes: .compat
 This package provides files for developing applications to use %{name} 1.x.
 
 %prep
-%autosetup -p1 -n modulemd-%{version}
+%autosetup -p1 -n modulemd-%{newversion}
 
 %build
 %meson -Ddeveloper_build=false -Dbuild_api_v1=true -Dbuild_api_v2=true
