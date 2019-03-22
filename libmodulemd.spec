@@ -13,6 +13,10 @@
 %define olddevname %mklibname modulemd %{oldmajor} -d
 
 %define newversion 2.1.0
+
+%bcond_without gir
+%bcond_with gtk-doc
+
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
 Version:	%{newversion}
@@ -21,13 +25,16 @@ Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
 Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{newversion}.tar.xz
+Patch0:		disable-gtk-doc.patch
 BuildRequires:	meson
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
 BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
+%if %{with gtk-doc}
 BuildRequires:	gtk-doc
-BuildRequires:	valgrind
+%endif
+#BuildRequires:	valgrind
 
 %description
 Library for manipulating module metadata files
@@ -106,7 +113,13 @@ This package provides files for developing applications to use %{name} 1.x.
 %autosetup -p1 -n modulemd-%{newversion}
 
 %build
-%meson -Ddeveloper_build=false -Dbuild_api_v1=true -Dbuild_api_v2=true
+%meson -Ddeveloper_build=false \
+	-Dbuild_api_v1=true \
+%if !%{with gir}
+	-Dskip_introspection=true \
+%endif
+	-Dbuild_api_v2=true \
+
 %ninja_build -C build
 
 %install
@@ -129,7 +142,9 @@ ln -s libmodulemd.so.%{oldversion} %{buildroot}%{_libdir}/%{name}.so.compat
 %{_datadir}/gir-1.0/Modulemd-%{girapi}.gir
 %{_includedir}/modulemd-%{major}.0
 %{_libdir}/pkgconfig/modulemd-%{major}*.pc
+%if %{with gtk-doc}
 %doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
+%endif
 
 %files -n python-%{name}
 %{py_platsitedir}/gi/overrides/Modulemd.py
@@ -146,4 +161,6 @@ ln -s libmodulemd.so.%{oldversion} %{buildroot}%{_libdir}/%{name}.so.compat
 %{_libdir}/pkgconfig/modulemd.pc
 %{_includedir}/modulemd/
 %{_datadir}/gir-1.0/Modulemd-%{oldgirapi}.gir
+%if %{with gtk-doc}
 %doc %{_datadir}/gtk-doc/html/modulemd-%{oldgirapi}/
+%endif
