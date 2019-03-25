@@ -5,7 +5,7 @@
 %define devname %mklibname modulemd -d
 
 # Legacy modulemd API needed for DNF
-%define oldversion 1.8.0
+%define oldversion 1.8.2
 %define oldmajor 1
 %define oldgirapi %{oldmajor}.0
 %define oldlibname %mklibname modulemd %{oldmajor}
@@ -124,7 +124,7 @@ This package provides files for developing applications to use %{name} 1.x.
 
 %install
 %ninja_install -C build
-ln -s libmodulemd.so.%{oldversion} %{buildroot}%{_libdir}/%{name}.so.compat
+ln -s %{_libdir}/%{name}.so.%{oldversion} %{buildroot}%{_libdir}/%{name}.so.compat
 
 %files
 %{_bindir}/modulemd-validator
