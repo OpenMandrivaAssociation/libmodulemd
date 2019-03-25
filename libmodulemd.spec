@@ -97,7 +97,7 @@ for applications to use %{name} 1.x.
 Summary:        Development files for %{name} 1.x
 Version:        %{oldversion}
 Group:          Development/C
-Conflicts:      %{devname}
+Conflicts:      %{devname} <= %{EVRD}
 Provides:       %{name}%{oldmajor}-devel = %{oldversion}-%{release}
 Provides:       %{name}%{oldmajor}-devel%{?_isa} = %{oldversion}-%{release}
 Provides:       modulemd%{oldmajor}-devel = %{oldversion}-%{release}
