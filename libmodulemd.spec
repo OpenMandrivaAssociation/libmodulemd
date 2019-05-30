@@ -5,14 +5,14 @@
 %define devname %mklibname modulemd -d
 
 # Legacy modulemd API needed for DNF
-%define oldversion 1.8.8
+%define oldversion 1.8.11
 %define oldmajor 1
 %define oldgirapi %{oldmajor}.0
 %define oldlibname %mklibname modulemd %{oldmajor}
 %define oldgirname %mklibname modulemd-gir %{oldgirapi}
 %define olddevname %mklibname modulemd %{oldmajor} -d
 
-%define newversion 2.3.1
+%define newversion 2.5.0
 
 %bcond_without gir
 %bcond_with gtk-doc
