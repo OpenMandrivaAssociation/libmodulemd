@@ -65,7 +65,7 @@ This package provides the Python 3 bindings for %{name}.
 Development files for %{name}.
 
 %prep
-%autosetup -p1 -n modulemd-%{newversion}
+%autosetup -p1 -n modulemd-%{version}
 
 %build
 %meson \
