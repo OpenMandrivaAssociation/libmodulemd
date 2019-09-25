@@ -25,6 +25,7 @@ BuildRequires:	python3egg(autopep8)
 BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	pkgconfig(rpm)
+BuildRequires:	magic-devel
 %if %{with gtk-doc}
 BuildRequires:	gtk-doc
 %endif
