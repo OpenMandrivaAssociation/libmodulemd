@@ -19,6 +19,7 @@ Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{ver
 Patch0:		disable-gtk-doc.patch
 %endif
 BuildRequires:	meson
+BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	python3egg(autopep8)
 BuildRequires:	python3dist(pygobject)
