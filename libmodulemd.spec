@@ -26,6 +26,9 @@ BuildRequires:	python3dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	pkgconfig(rpm)
 BuildRequires:	magic-devel
+BuildRequires:	/bin/sh
+BuildRequires:	sed
+BuildRequires:	coreutils
 %if %{with gtk-doc}
 BuildRequires:	gtk-doc
 %endif
