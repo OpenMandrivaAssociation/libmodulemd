@@ -1,45 +1,35 @@
-diff --git a/meson.build b/meson.build
-index 228bd34..f26e2cc 100644
---- a/meson.build
-+++ b/meson.build
-@@ -52,7 +52,6 @@ gnome = import('gnome')
+diff -Naur modulemd-2.8.0/meson.build modulemd-2.8.0.tpg/meson.build
+--- modulemd-2.8.0/meson.build	2019-09-04 01:35:13.000000000 +0000
++++ modulemd-2.8.0.tpg/meson.build	2019-09-25 16:59:22.291307909 +0000
+@@ -52,7 +52,6 @@
  pkg = import('pkgconfig')
  gobject = dependency('gobject-2.0')
  yaml = dependency('yaml-0.1')
 -gtkdoc = dependency('gtk-doc')
  
- sh = find_program('sh')
- sed = find_program('sed')
-diff --git a/modulemd/v1/meson.build b/modulemd/v1/meson.build
-index 74db89a..12416ed 100644
---- a/modulemd/v1/meson.build
-+++ b/modulemd/v1/meson.build
-@@ -340,12 +340,3 @@ configure_file(
+ with_rpmio = get_option('rpmio')
+ with_libmagic = get_option('libmagic')
+diff -Naur modulemd-2.8.0/modulemd/meson.build modulemd-2.8.0.tpg/modulemd/meson.build
+--- modulemd-2.8.0/modulemd/meson.build	2019-09-04 01:35:13.000000000 +0000
++++ modulemd-2.8.0.tpg/modulemd/meson.build	2019-09-25 17:00:10.712757529 +0000
+@@ -479,20 +479,3 @@
    output : 'version.xml',
    configuration : xcdata
  )
 -
 -gnome.gtkdoc(
--    'modulemd-1.0',
--    install_dir: 'modulemd-1.0',
--    src_dir : './modulemd/v1',
--    main_xml : 'modulemd-v1-docs.xml',
--    install : true,
--)
--
-diff --git a/modulemd/v2/meson.build b/modulemd/v2/meson.build
-index 7b94e0c..c5f72b9 100644
---- a/modulemd/v2/meson.build
-+++ b/modulemd/v2/meson.build
-@@ -530,11 +530,3 @@ configure_file(
-   configuration : xcdata
- )
- 
--gnome.gtkdoc(
 -    'modulemd-2.0',
 -    install_dir: 'modulemd-2.0',
--    src_dir : './modulemd/v2',
--    main_xml : 'modulemd-v2-docs.xml',
+-    src_dir : './modulemd',
+-    main_xml : 'modulemd-docs.xml',
+-    gobject_typesfile : join_paths(meson.current_build_dir(), 'modulemd-2.0.types'),
+-    dependencies : [
+-        modulemd_dep,
+-    ],
+-    fixxref_args: [
+-                 '--extra-dir=@0@'.format(join_paths(glib_docpath, 'glib')),
+-                 '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gobject')),
+-               ],
 -    install : true,
 -)
 -
