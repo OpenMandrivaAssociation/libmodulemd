@@ -80,7 +80,8 @@ Development files for %{name}.
 %if !%{with gir}
 	-Dskip_introspection=true \
 %endif
-	-Ddeveloper_build=false
+	-Ddeveloper_build=false \
+	-Dwith_py2_overrides=false
 
 %ninja_build -C build
 
