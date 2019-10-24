@@ -9,7 +9,7 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.8.0
+Version:	2.8.2
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
@@ -79,6 +79,9 @@ Development files for %{name}.
 %meson \
 %if !%{with gir}
 	-Dskip_introspection=true \
+%endif
+%if %{without gtk-doc}
+	-Dwith_docs=false \
 %endif
 	-Ddeveloper_build=false \
 	-Dwith_py2_overrides=false
