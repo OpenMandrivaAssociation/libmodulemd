@@ -71,6 +71,7 @@ Development files for %{name}.
 
 %prep
 %autosetup -p1 -n modulemd-%{version}
+
 # https://github.com/fedora-modularity/libmodulemd/issues/387
 sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 
@@ -83,7 +84,7 @@ sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 	-Dwith_docs=false \
 %endif
 	-Ddeveloper_build=false \
-	-Dwith_py2_overrides=false || cat build/meson-logs/meson-log.txt && exit 1
+	-Dwith_py2_overrides=false
 
 %ninja_build -C build
 
