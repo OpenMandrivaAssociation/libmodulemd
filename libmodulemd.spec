@@ -71,6 +71,8 @@ Development files for %{name}.
 
 %prep
 %autosetup -p1 -n modulemd-%{version}
+# https://github.com/fedora-modularity/libmodulemd/issues/387
+sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 
 %build
 %meson \
