@@ -15,9 +15,6 @@ Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
 Source0:	https://github.com/fedora-modularity/libmodulemd/archive/modulemd-%{version}.tar.xz
-%if %{without gtk-doc}
-Patch0:		disable-gtk-doc.patch
-%endif
 BuildRequires:	meson
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
