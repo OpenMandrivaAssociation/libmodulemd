@@ -81,7 +81,7 @@ Development files for %{name}.
 	-Dwith_docs=false \
 %endif
 	-Ddeveloper_build=false \
-	-Dwith_py2_overrides=false
+	-Dwith_py2_overrides=false || cat meson-logs/meson-log.txt && exit 1
 
 %ninja_build -C build
 
