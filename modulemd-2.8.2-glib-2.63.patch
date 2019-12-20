@@ -1,0 +1,9 @@
+diff -up modulemd-2.8.2/modulemd/include/private/glib-extensions.h.omv~ modulemd-2.8.2/modulemd/include/private/glib-extensions.h
+--- modulemd-2.8.2/modulemd/include/private/glib-extensions.h.omv~	2019-12-20 18:24:04.176116531 +0100
++++ modulemd-2.8.2/modulemd/include/private/glib-extensions.h	2019-12-20 18:24:08.654116314 +0100
+@@ -12,5 +12,3 @@
+  */
+ 
+ #include <glib.h>
+-
+-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GDate, g_date_free);
