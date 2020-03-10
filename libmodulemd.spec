@@ -94,6 +94,7 @@ sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 
 %files
 %{_bindir}/modulemd-validator
+%{_mandir}/man1/modulemd-validator.1.*
 
 %files -n %{libname}
 %{_libdir}/%{name}.so.%{major}*
