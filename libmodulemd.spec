@@ -26,6 +26,7 @@ BuildRequires:	magic-devel
 BuildRequires:	/bin/sh
 BuildRequires:	sed
 BuildRequires:	coreutils
+BuildRequires:  help2man
 %if %{with gtk-doc}
 BuildRequires:	gtk-doc
 %endif
