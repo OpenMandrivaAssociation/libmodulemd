@@ -14,7 +14,7 @@ Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
-Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/%{name}-%{version}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/modulemd-%{version}/modulemd-%{version}.tar.xz
 BuildRequires:	meson
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
