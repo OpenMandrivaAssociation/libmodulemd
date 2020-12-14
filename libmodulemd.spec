@@ -9,13 +9,13 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.10.0
+Version:	2.11.0
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
 Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/modulemd-%{version}/modulemd-%{version}.tar.xz
-Patch0:	https://github.com/fedora-modularity/libmodulemd/commit/05afb01e3a6de8f09ac664f2d93c3aac9be1e99e.patch
+Patch0:		https://github.com/fedora-modularity/libmodulemd/commit/05afb01e3a6de8f09ac664f2d93c3aac9be1e99e.patch
 BuildRequires:	meson
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -60,10 +60,10 @@ Requires:	%{girname}%{?_isa} = %{version}-%{release}
 Requires:	%{libname}%{?_isa} = %{version}-%{release}
 
 %package -n python-%{name}
-Summary:        Python bindings for %{name}
-Group:          Development/Python
-Requires:       %{girname}%{?_isa} = %{version}-%{release}
-Requires:       python3dist(pygobject)
+Summary:	Python bindings for %{name}
+Group:		Development/Python
+Requires:	%{girname}%{?_isa} = %{version}-%{release}
+Requires:	python3dist(pygobject)
 
 %description -n python-%{name}
 This package provides the Python 3 bindings for %{name}.
