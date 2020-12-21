@@ -9,7 +9,7 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.11.0
+Version:	2.11.1
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
