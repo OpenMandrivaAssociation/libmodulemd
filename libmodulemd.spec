@@ -9,7 +9,7 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.12.0
+Version:	2.12.1
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
@@ -26,7 +26,7 @@ BuildRequires:	magic-devel
 BuildRequires:	/bin/sh
 BuildRequires:	sed
 BuildRequires:	coreutils
-BuildRequires:  help2man
+BuildRequires:	help2man
 %if %{with gtk-doc}
 BuildRequires:	gtk-doc
 %endif
