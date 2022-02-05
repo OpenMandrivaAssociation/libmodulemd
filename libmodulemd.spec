@@ -84,7 +84,6 @@ sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 %if %{without gtk-doc}
 	-Dwith_docs=false \
 %endif
-	-Dwith_py3 \
 	-Dgobject_overrides_dir_py3=
 
 %ninja_build -C build
