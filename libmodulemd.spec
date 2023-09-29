@@ -3,6 +3,7 @@
 %define libname %mklibname modulemd %{major}
 %define girname %mklibname modulemd-gir %{girapi}
 %define devname %mklibname modulemd -d
+%define girdev %mklibname modulemd-gir -d
 
 %bcond_without gir
 %bcond_without python
@@ -11,7 +12,7 @@
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
 Version:	2.15.0
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/%{name}
@@ -46,17 +47,25 @@ Library for manipulating module metadata files
 %package -n %{girname}
 Summary:	GObject Introspection interface description for libmodulemd
 Group:		System/Libraries
-Requires:	%{libname}%{?_isa} = %{version}-%{release}
+Requires:	%{libname}%{?_isa} = %{EVRD}
 
 %description -n %{girname}
 GObject Introspection interface description for libmodulemd.
+
+%package -n %{girdev}
+Summary:	Development files for the GObject Introspection interface description for libmodulemd
+Group:		System/Libraries
+Requires:	%{girname}%{?_isa} = %{EVRD}
+Requires:	%{devname}%{?_isa} = %{EVRD}
+
+%description -n %{girdev}
+Development files for the GObject Introspection interface description for libmodulemd
 
 %package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Provides:	%{name}-devel%{?_isa} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{girname}%{?_isa} = %{version}-%{release}
 Requires:	%{libname}%{?_isa} = %{version}-%{release}
 
 %package -n python-%{name}
@@ -104,8 +113,13 @@ sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 
 %if %{with gir}
 %files -n %{girname}
-%{_datadir}/gir-1.0/Modulemd-%{girapi}.gir
 %{_libdir}/girepository-1.0/Modulemd-%{girapi}.typelib
+
+%files -n %{girdev}
+%{_datadir}/gir-1.0/Modulemd-%{girapi}.gir
+%if %{with gtk-doc}
+%doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
+%endif
 %endif
 
 %files -n %{devname}
@@ -113,9 +127,6 @@ sed -i -e 's,/usr/bin/sh,/bin/sh,g' modulemd/clang_simple_version.sh
 %{_libdir}/%{name}.so
 %{_includedir}/modulemd-%{major}.0
 %{_libdir}/pkgconfig/modulemd-%{major}*.pc
-%if %{with gtk-doc}
-%doc %{_datadir}/gtk-doc/html/modulemd-%{girapi}
-%endif
 
 %if %{with python}
 %files -n python-%{name}
