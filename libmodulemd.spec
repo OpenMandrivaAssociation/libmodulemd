@@ -1,6 +1,7 @@
 %define major 2
 %define girapi %{major}.0
-%define libname %mklibname modulemd %{major}
+%define oldlibname %mklibname modulemd 2
+%define libname %mklibname modulemd
 %define girname %mklibname modulemd-gir %{girapi}
 %define devname %mklibname modulemd -d
 %define girdev %mklibname modulemd-gir -d
@@ -12,16 +13,16 @@
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
 Version:	2.15.0
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	LGPLv2+
-URL:		https://github.com/fedora-modularity/%{name}
+URL:		https://github.com/fedora-modularity/libmodulemd
 Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/modulemd-%{version}/modulemd-%{version}.tar.xz
 BuildRequires:	meson
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	python3dist(autopep8)
-BuildRequires:	python3dist(pygobject)
+BuildRequires:	python%{pyver}dist(autopep8)
+BuildRequires:	python%{pyver}dist(pygobject)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	pkgconfig(rpm)
 BuildRequires:	magic-devel
@@ -40,6 +41,7 @@ Library for manipulating module metadata files
 %package -n %{libname}
 Summary:	Library for manipulating module metadata files
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 Library for manipulating module metadata files
