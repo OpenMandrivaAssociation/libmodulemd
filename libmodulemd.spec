@@ -12,8 +12,8 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.15.0
-Release:	3
+Version:	2.15.1
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/libmodulemd
