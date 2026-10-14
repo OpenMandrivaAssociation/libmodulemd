@@ -13,7 +13,7 @@
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
 Version:	2.15.3
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/libmodulemd
@@ -74,7 +74,7 @@ Requires:	%{libname}%{?_isa} = %{version}-%{release}
 Summary:	Python bindings for %{name}
 Group:		Development/Python
 Requires:	%{girname}%{?_isa} = %{version}-%{release}
-Requires:	python3dist(pygobject)
+Requires:	python%{pyver}dist(pygobject)
 
 %description -n python-%{name}
 This package provides the Python 3 bindings for %{name}.
