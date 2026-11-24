@@ -12,12 +12,12 @@
 
 Summary:	Library for manipulating module metadata files
 Name:		libmodulemd
-Version:	2.15.3
-Release:	2
+Version:	2.15.4
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://github.com/fedora-modularity/libmodulemd
-Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/modulemd-%{version}/modulemd-%{version}.tar.xz
+Source0:	https://github.com/fedora-modularity/libmodulemd/releases/download/%{version}/modulemd-%{version}.tar.xz
 BuildRequires:	meson
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
